@@ -1,12 +1,12 @@
 "use client"
 
 import { useEffect, useState, useRef } from "react"
-import { Play, Pause } from "lucide-react"
 import Navigation from "@/components/navigation"
 import Hero from "@/components/hero"
 import Gallery from "@/components/gallery"
 import About from "@/components/about"
 import { FloatingCircles, GlowingStars, GradientOrb } from "@/components/decorative-elements"
+import { Pause, Play } from "lucide-react"
 
 export default function Home() {
   const [isPlaying, setIsPlaying] = useState(false)
