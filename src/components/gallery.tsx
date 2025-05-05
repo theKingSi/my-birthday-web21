@@ -62,17 +62,17 @@ export default function Gallery() {
     {
       id: 11,
       src: "/B25.jpg",
-      alt: "Birthday chocolate cake with strawberries",
+      alt: "Me and my adorable sister",
     },
     {
       id: 12,
       src: "/B12.jpg",
-      alt: "Birthday present opening moment",
+      alt: "where my help commet from",
     },
     {
       id: 13,
-      src: "/B20.jpg",
-      alt: "Birthday dinner table setup",
+      src: "/B13.jpg",
+      alt: "Tall boy at the back, short boy at the front",
     },
     {
       id: 14,
@@ -106,7 +106,7 @@ export default function Gallery() {
     },
     {
       id: 20,
-      src: "/B13.jpg",
+      src: "/B23.jpg",
       alt: "Birthday night celebration with lights",
     },
     {
@@ -121,8 +121,8 @@ export default function Gallery() {
       },
       {
         id: 23,
-        src: "/B23.jpg",
-        alt: "Birthday cake cutting moment",
+        src: "/B20.jpg",
+        alt: "Tall boy at the back, short boy at the front",
       },
       {
         id: 24,
