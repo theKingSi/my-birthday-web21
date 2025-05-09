@@ -7,6 +7,7 @@ interface HeroProps {
   name: string
 }
 
+
 export default function Hero({ name }: HeroProps) {
   const confettiCanvasRef = useRef<HTMLCanvasElement>(null)
 
