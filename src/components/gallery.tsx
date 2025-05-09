@@ -7,7 +7,7 @@ import Image from "next/image"
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null)
 
-  // Real birthday-themed images
+  // The birthday images
   const images = [
     {
       id: 1,
@@ -21,7 +21,7 @@ export default function Gallery() {
     },
     {
       id: 3,
-      src: "/B11.jpg",
+      src: "/B31.jpg",
       alt: "Smlies weirdly",
     },
     {
@@ -127,6 +127,26 @@ export default function Gallery() {
       {
         id: 24,
         src: "/B19.jpg",
+        alt: "Birthday night celebration with lights",
+      },
+      {
+        id: 25,
+        src: "/B27.jpg",
+        alt: "Birthday outdoor celebration",
+      },
+      {
+        id: 26,
+        src: "/B28.jpg",
+        alt: "Birthday selfie with friends",
+      },
+      {
+        id: 27,
+        src: "/B29.jpg",
+        alt: "Tall boy at the back, short boy at the front",
+      },
+      {
+        id: 28,
+        src: "/B30.jpg",
         alt: "Birthday night celebration with lights",
       },
   ]

@@ -7,6 +7,8 @@ import Gallery from "@/components/gallery"
 import About from "@/components/about"
 import { FloatingCircles, GlowingStars, GradientOrb } from "@/components/decorative-elements"
 import { Pause, Play } from "lucide-react"
+import ChatBox from "@/components/chat"
+import AccountDetails from "@/components/account-details"
 
 export default function Home() {
   const [isPlaying, setIsPlaying] = useState(false)
@@ -15,13 +17,21 @@ export default function Home() {
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const celebrantName = "King Solomon"
 
+  
+  // Account details
+  const accountDetails = {
+    accountName: "NNABUGWU SOLOMON CHUKWUEBUKA",
+    accountNumber: "8163690428",
+    bankName: "OPAY",
+  }
+
   // Initialize audio on user interaction only
   const initializeAudio = () => {
     try {
       if (audioRef.current) return 
 
       const audio = new Audio()
-      audio.src = "/birthday-song.mp3"
+      audio.src = "/Mar.mp3"
       audio.loop = true
       audio.volume = 0.7
 
@@ -47,6 +57,8 @@ export default function Home() {
         setIsAudioReady(false)
         console.error("Audio error details:", errorMessage)
       })
+
+      
 
       // Store reference
       audioRef.current = audio
@@ -148,7 +160,15 @@ export default function Home() {
       <div className="container mx-auto px-4 py-8 relative z-10">
         <Hero name={celebrantName} />
 
+        <ChatBox />
+
         <Gallery />
+
+        <AccountDetails
+          accountName={accountDetails.accountName}
+          accountNumber={accountDetails.accountNumber}
+          bankName={accountDetails.bankName}
+        />
 
         <About name={celebrantName} />
 

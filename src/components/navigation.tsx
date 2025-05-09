@@ -49,6 +49,18 @@ export default function Navigation() {
               Gallery
             </button>
             <button
+              onClick={() => scrollToSection("wishes")}
+              className="text-white hover:text-pink-300 transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-pink-300 after:transition-all hover:after:w-full"
+            >
+              Wishes
+            </button>
+            <button
+              onClick={() => scrollToSection("gift")}
+              className="text-white hover:text-pink-300 transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-pink-300 after:transition-all hover:after:w-full"
+            >
+              Gift
+            </button>
+            <button
               onClick={() => scrollToSection("about")}
               className="text-white hover:text-pink-300 transition-colors relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-pink-300 after:transition-all hover:after:w-full"
             >
@@ -82,6 +94,18 @@ export default function Navigation() {
               className="text-white py-2 hover:text-pink-300 transition-colors text-left relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-pink-300 after:transition-all hover:after:w-full"
             >
               Gallery
+            </button>
+            <button
+              onClick={() => scrollToSection("wishes")}
+              className="text-white py-2 hover:text-pink-300 transition-colors text-left relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-pink-300 after:transition-all hover:after:w-full"
+            >
+              Wishes
+            </button>
+            <button
+              onClick={() => scrollToSection("gift")}
+              className="text-white py-2 hover:text-pink-300 transition-colors text-left relative after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-pink-300 after:transition-all hover:after:w-full"
+            >
+              Gift
             </button>
             <button
               onClick={() => scrollToSection("about")}

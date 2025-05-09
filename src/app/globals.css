@@ -134,3 +134,115 @@ html {
   z-index: -1;
   opacity: 0.4;
 }
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Futuristic gallery animations */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.animate-gradient-xy {
+  animation: gradient-xy 6s linear infinite;
+}
+
+@keyframes gradient-xy {
+  0%,
+  100% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 100% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-pulse-fast {
+  animation: pulse-slow 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-slow {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.animate-fade-scale {
+  animation: fade-scale 0.3s ease-out forwards;
+}
+
+@keyframes fade-scale {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Slideshow animations */
+.animate-slide-transition {
+  animation: slide-transition 0.4s ease-out forwards;
+}
+
+@keyframes slide-transition {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.98) translateX(5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateX(0);
+  }
+}
+
+@keyframes progress {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+/* Custom scrollbar for chat box */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #8c52ff, #ff7eb9);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #a78bfa, #f472b6);
+}

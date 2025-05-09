@@ -16,7 +16,7 @@ export default function AudioPlayer({ onPlayingChange }: AudioPlayerProps) {
     const audio = new Audio()
 
     // Set audio properties
-    audio.src = "/birthday-song.mp3"
+    audio.src = "/Mar.mp3"
     audio.loop = true
     audio.preload = "auto"
     audio.volume = 0.7 // Set initial volume to 70%
