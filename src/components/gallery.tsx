@@ -7,186 +7,53 @@ import Image from "next/image"
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null)
 
-  // The birthday images
   const images = [
-    {
-      id: 1,
-      src: "/B32.jpeg",
-      alt: "Birthday Boy",
-    },
-    {
-      id: 2,
-      src: "/B1.jpg",
-      alt: "A tall boy standing near a short boy",
-    },
-    {
-      id: 3,
-      src: "/B31.jpg",
-      alt: "A tired birthday boy",
-    },
-    {
-      id: 4,
-      src: "/B4.jpg",
-      alt: "'Sips tea'",
-    },
-    {
-      id: 5,
-      src: "/B5.jpg",
-      alt: "Mummy don't leave me!!!",
-    },
-    {
-      id: 6,
-      src: "/B6.jpg",
-      alt: "Of cause I'm in the abroad",
-    },
-    {
-      id: 7,
-      src: "/B7.jpg",
-      alt: "oooou!! fine boys😏",
-    },
-    {
-      id: 8,
-      src: "/B14.jpg",
-      alt: "Fine boi!!😎",
-    },
-    {
-      id: 9,
-      src: "/B9.jpg",
-      alt: "Pride wan finish me😤😤",
-    },
-    {
-      id: 10,
-      src: "/B34.jpg",
-      alt: "Styles the Grapher",
-    },
-    {
-      id: 11,
-      src: "/B25.jpg",
-      alt: "Me and my adorable sister",
-    },
-    {
-      id: 12,
-      src: "/B12.jpg",
-      alt: "where my help commet from",
-    },
-    {
-      id: 13,
-      src: "/B13.jpg",
-      alt: "Birthday boy in black and white",
-    },
-    {
-      id: 14,
-      src: "/B8.jpg",
-      alt: "Birthday boy and friends",
-    },
-    {
-      id: 15,
-      src: "/B24.jpg",
-      alt: "Birthday flower bouquet",
-    },
-    {
-      id: 16,
-      src: "/B16.jpg",
-      alt: "Slick birthday boy",
-    },
-    {
-      id: 17,
-      src: "/B17.jpg",
-      alt: "Let's........",
-    },
-    {
-      id: 18,
-      src: "/B18.jpg",
-      alt: "Birthday boy with Kushi",
-    },
-    {
-      id: 19,
-      src: "/B15.jpg",
-      alt: "Birthday boy also in black and white",
-    },
-    {
-      id: 20,
-      src: "/B33.jpeg",
-      alt: "Birthday boy at IWD",
-    },
-    {
-      id: 21,
-      src: "/B21.jpg",
-      alt: "Birthday boy with coursemates",
-    },
-    {
-      id: 22,
-      src: "/B22.jpg",
-      alt: "Shopping for baby napkins for Sam' naming ceremony",
-    },
-    {
-      id: 23,
-      src: "/B20.jpg",
-      alt: "Tall boy at the back, short boy at the front",
-    },
-    {
-      id: 24,
-      src: "/B19.jpg",
-      alt: "Birthday boy ",
-    },
-    {
-      id: 25,
-      src: "/B27.jpg",
-      alt: "Birthday boy at Devfest24",
-    },
-    {
-      id: 26,
-      src: "/B40.jpeg",
-       alt: "Iconic",
-    },
-
-    {
-      id: 27,
-      src: "/B28.jpg",
-     alt: "Birthday boy touching Techub EKSU",
-    },
-
-    {
-      id: 28,
-      src: "/B29.jpg",
-      alt: "Just chilling",
-    },
-    {
-      id: 29,
-      src: "/B30.jpg",
-      alt: "Birthday boy with honor.J",
-    },
-
-    {
-      id: 30,
-      src: "/B39.jpg",
-      alt: "Selfie",
-    },
-    {
-      id: 31,
-      src: "/B37.jpeg",
-      alt: "Birthday boy looking at his future",
-    },
-    {
-      id: 32,
-      src: "/B38.jpg",
-      alt: "Birthday boy at Devfest23",
-    },
+    { id: 1, src: "/B32.jpeg", alt: "Birthday Boy" },
+    { id: 2, src: "/B1.jpg", alt: "A tall boy standing near a short boy" },
+    { id: 3, src: "/B31.jpg", alt: "A tired birthday boy" },
+    { id: 4, src: "/B4.jpg", alt: "'Sips tea'" },
+    { id: 5, src: "/B5.jpg", alt: "Mummy don't leave me!!!" },
+    { id: 6, src: "/B6.jpg", alt: "Of course I'm in the abroad" },
+    { id: 7, src: "/B7.jpg", alt: "oooou!! fine boys😏" },
+    { id: 8, src: "/B14.jpg", alt: "Fine boi!!😎" },
+    { id: 9, src: "/B9.jpg", alt: "Pride wan finish me😤😤" },
+    { id: 10, src: "/B34.jpg", alt: "Styles the Grapher" },
+    { id: 11, src: "/B25.jpg", alt: "Me and my adorable sister" },
+    { id: 12, src: "/B12.jpg", alt: "where my help commet from" },
+    { id: 13, src: "/B13.jpg", alt: "Birthday boy in black and white" },
+    { id: 14, src: "/B8.jpg", alt: "Birthday boy and friends" },
+    { id: 15, src: "/B24.jpg", alt: "Birthday flower bouquet" },
+    { id: 16, src: "/B16.jpg", alt: "Slick birthday boy" },
+    { id: 17, src: "/B17.jpg", alt: "Let's........" },
+    { id: 18, src: "/B18.jpg", alt: "Birthday boy with Kushi" },
+    { id: 19, src: "/B15.jpg", alt: "Birthday boy also in black and white" },
+    { id: 20, src: "/B33.jpeg", alt: "Birthday boy at IWD" },
+    { id: 21, src: "/B21.jpg", alt: "Birthday boy with coursemates" },
+    { id: 22, src: "/B22.jpg", alt: "Shopping for baby napkins for Sam' naming ceremony" },
+    { id: 23, src: "/B20.jpg", alt: "Tall boy at the back, short boy at the front" },
+    { id: 24, src: "/B19.jpg", alt: "Birthday boy" },
+    { id: 25, src: "/B27.jpg", alt: "Birthday boy at Devfest24" },
+    { id: 26, src: "/B40.jpeg", alt: "Iconic" },
+    { id: 27, src: "/B28.jpg", alt: "Birthday boy touching Techub EKSU" },
+    { id: 28, src: "/B29.jpg", alt: "Just chilling" },
+    { id: 29, src: "/B30.jpg", alt: "Birthday boy with honor.J" },
+    { id: 30, src: "/B39.jpg", alt: "Selfie" },
+    { id: 31, src: "/B37.jpeg", alt: "Birthday boy looking at his future" },
+    { id: 32, src: "/B38.jpg", alt: "Birthday boy at Devfest23" },
   ]
 
   const openLightbox = (index: number) => {
     setSelectedImage(index)
-    document.body.style.overflow = "hidden"
+    document.body.classList.add("overflow-hidden")
   }
 
   const closeLightbox = useCallback(() => {
     setSelectedImage(null)
-    document.body.style.overflow = "auto"
+    document.body.classList.remove("overflow-hidden")
   }, [])
 
   const navigateImage = (direction: "prev" | "next") => {
     if (selectedImage === null) return
-
     if (direction === "prev") {
       setSelectedImage(selectedImage === 0 ? images.length - 1 : selectedImage - 1)
     } else {
@@ -194,39 +61,26 @@ export default function Gallery() {
     }
   }
 
-  // Handle keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (selectedImage === null) return
-
-      if (e.key === "ArrowLeft") {
-        navigateImage("prev")
-      } else if (e.key === "ArrowRight") {
-        navigateImage("next")
-      } else if (e.key === "Escape") {
-        closeLightbox()
-      }
+      if (e.key === "ArrowLeft") navigateImage("prev")
+      if (e.key === "ArrowRight") navigateImage("next")
+      if (e.key === "Escape") closeLightbox()
     }
-
     window.addEventListener("keydown", handleKeyDown)
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown)
-    }
+    return () => window.removeEventListener("keydown", handleKeyDown)
   }, [selectedImage, closeLightbox])
 
-  // Focus management for accessibility
   useEffect(() => {
     if (selectedImage !== null) {
-      // Focus the lightbox container when it opens
       const lightbox = document.getElementById("lightbox-container")
-      if (lightbox) {
-        lightbox.focus()
-      }
+      lightbox?.focus()
     }
   }, [selectedImage])
 
   return (
-    <section id="gallery" className="py-20 opacity-0 transition-opacity duration-1000">
+    <section id="gallery" className="py-20 opacity-100 transition-opacity duration-1000">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center font-dancing gradient-text">
           Birthday Gallery
@@ -236,8 +90,9 @@ export default function Gallery() {
           {images.map((image, index) => (
             <div
               key={image.id}
-              className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-lg group cursor-pointer transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl glass-dark"
+              className="relative aspect-[4/3] min-h-[200px] overflow-hidden rounded-lg shadow-lg group cursor-pointer transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl glass-dark"
               onClick={() => openLightbox(index)}
+              onTouchStart={() => openLightbox(index)}
             >
               <Image
                 src={image.src || "/placeholder.svg"}
@@ -246,15 +101,11 @@ export default function Gallery() {
                 sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              {/* <div className="absolute inset-0 bg-gradient-to-t from-purple-900/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                <p className="text-white font-medium">{image.alt}</p>
-              </div> */}
             </div>
           ))}
         </div>
       </div>
 
-      {/* Lightbox */}
       {selectedImage !== null && (
         <div
           id="lightbox-container"
@@ -264,7 +115,6 @@ export default function Gallery() {
           aria-modal="true"
           aria-label="Image lightbox"
         >
-          {/* Close button with improved positioning and z-index */}
           <button
             className="fixed top-4 right-4 z-[100] bg-black/50 hover:bg-black/70 text-white hover:text-pink-300 p-2 rounded-full transition-all duration-300"
             onClick={closeLightbox}
@@ -289,13 +139,9 @@ export default function Gallery() {
             <ChevronRight className="text-white" size={24} />
           </button>
 
-          {/* Image container with improved click handling */}
           <div
-            className="relative w-full max-w-4xl aspect-[4/3] bg-transparent"
-            onClick={(e) => {
-              // Prevent clicks on the image from closing the lightbox
-              e.stopPropagation()
-            }}
+            className="relative w-full max-w-4xl aspect-[4/3] bg-transparent z-50"
+            onClick={(e) => e.stopPropagation()}
           >
             <Image
               src={images[selectedImage].src || "/placeholder.svg"}
@@ -310,7 +156,6 @@ export default function Gallery() {
             </div>
           </div>
 
-          {/* Overlay that can be clicked to close */}
           <div className="absolute inset-0 z-40" onClick={closeLightbox} aria-hidden="true"></div>
         </div>
       )}
