@@ -211,12 +211,12 @@ export default function MusicPlayer({ onPlayingChange }: MusicPlayerProps) {
               className="p-2 rounded-full hover:bg-white/10 transition-colors"
               aria-label="Previous song"
             >
-              <SkipBack className="h-4 w-4 text-white" />
+              <SkipBack className="h-4 w-4 text-white cursor-pointer" />
             </button>
 
             <button
               onClick={togglePlay}
-              className={`p-3 rounded-full hover:bg-white/10 transition-all duration-300 ${isPlaying ? "audio-playing bg-pink-500/20" : "bg-purple-500/20"
+              className={`p-3 rounded-full hover:bg-white/10 cursor-pointer transition-all duration-300 ${isPlaying ? "audio-playing bg-pink-500/20" : "bg-purple-500/20"
                 }`}
               aria-label={isPlaying ? "Pause" : "Play"}
             >
@@ -225,7 +225,7 @@ export default function MusicPlayer({ onPlayingChange }: MusicPlayerProps) {
 
             <button
               onClick={playNextSong}
-              className="p-2 rounded-full hover:bg-white/10 transition-colors"
+              className="p-2 rounded-full hover:bg-white/10 transition-colors cursor-pointer"
               aria-label="Next song"
             >
               <SkipForward className="h-4 w-4 text-white" />
@@ -234,10 +234,10 @@ export default function MusicPlayer({ onPlayingChange }: MusicPlayerProps) {
 
           <button
             onClick={toggleMute}
-            className="p-2 rounded-full hover:bg-white/10 transition-colors"
+            className="p-2 rounded-full hover:bg-white/10 cursor-pointer transition-colors"
             aria-label={isMuted ? "Unmute" : "Mute"}
           >
-            {isMuted ? <VolumeX className="h-5 w-5 text-white/70" /> : <Volume2 className="h-5 w-5 text-white/70" />}
+            {isMuted ? <VolumeX className="h-5 w-5  text-white/70" /> : <Volume2 className="h-5 w-5 text-white/70" />}
           </button>
         </div>
 

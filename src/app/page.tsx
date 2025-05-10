@@ -60,6 +60,7 @@ export default function Home() {
       <div className="container mx-auto px-4 py-8 relative z-10">
         <Hero name={celebrantName} />
 
+        <MusicPlayer />
         <Gallery />
 
         {/* <ChatBox /> */}
@@ -72,7 +73,7 @@ export default function Home() {
 
         <About name={celebrantName} />
 
-        <MusicPlayer />
+       
       </div>
     </main>
   )
