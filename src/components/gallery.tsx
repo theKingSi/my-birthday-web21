@@ -1,11 +1,13 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
-import { X, ChevronLeft, ChevronRight } from "lucide-react"
+import { useState, useEffect, useCallback, useRef } from "react"
+import { X, ChevronLeft, ChevronRight, Download, Share2 } from "lucide-react"
 import Image from "next/image"
 
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null)
+  const [touchStartX, setTouchStartX] = useState<number | null>(null)
+  const lightboxRef = useRef<HTMLDivElement>(null)
 
   const images = [
     { id: 1, src: "/B32.jpeg", alt: "Birthday Boy" },
@@ -61,6 +63,33 @@ export default function Gallery() {
     }
   }
 
+  const handleShare = async () => {
+    if (selectedImage === null) return
+    const image = images[selectedImage]
+
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: "Check out this image!",
+          text: image.alt,
+          url: image.src,
+        })
+      } else {
+        alert("Sharing is not supported on this browser.")
+      }
+    } catch (error) {
+      console.error("Share failed:", error)
+    }
+  }
+
+  const handleDownload = () => {
+    if (selectedImage === null) return
+    const link = document.createElement("a")
+    link.href = images[selectedImage].src
+    link.download = images[selectedImage].alt || "birthday-image"
+    link.click()
+  }
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (selectedImage === null) return
@@ -74,13 +103,24 @@ export default function Gallery() {
 
   useEffect(() => {
     if (selectedImage !== null) {
-      const lightbox = document.getElementById("lightbox-container")
-      lightbox?.focus()
+      lightboxRef.current?.focus()
     }
   }, [selectedImage])
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.touches[0].clientX)
+  }
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX === null) return
+    const deltaX = e.changedTouches[0].clientX - touchStartX
+    if (deltaX > 50) navigateImage("prev")
+    else if (deltaX < -50) navigateImage("next")
+    setTouchStartX(null)
+  }
+
   return (
-    <section id="gallery" className="py-20 opacity-100 transition-opacity duration-1000">
+    <section id="gallery" className="py-20">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center font-dancing gradient-text">
           Birthday Gallery
@@ -109,54 +149,83 @@ export default function Gallery() {
       {selectedImage !== null && (
         <div
           id="lightbox-container"
+          ref={lightboxRef}
           className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
           tabIndex={-1}
           role="dialog"
           aria-modal="true"
           aria-label="Image lightbox"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
         >
-          <button
-            className="fixed top-4 right-4 z-[100] bg-black/50 hover:bg-black/70 text-white hover:text-pink-300 p-2 rounded-full transition-all duration-300"
-            onClick={closeLightbox}
-            aria-label="Close lightbox"
-          >
-            <X size={24} />
-          </button>
+          {/* Background overlay */}
+          <div className="absolute inset-0 z-40" onClick={closeLightbox}></div>
 
-          <button
-            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 p-3 rounded-full transition-all duration-300 z-[60] backdrop-blur-md border border-white/10 group shadow-lg neon-box cursor-pointer"
-            onClick={() => navigateImage("prev")}
-            aria-label="Previous image"
-          >
-            <ChevronLeft className="text-white" size={24} />
-          </button>
-
-          <button
-            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 p-3 rounded-full transition-all duration-300 z-[60] backdrop-blur-md border border-white/10 group shadow-lg neon-box cursor-pointer"
-            onClick={() => navigateImage("next")}
-            aria-label="Next image"
-          >
-            <ChevronRight className="text-white" size={24} />
-          </button>
-
+          {/* Image and controls */}
           <div
-            className="relative w-full max-w-4xl aspect-[4/3] bg-transparent z-50"
+            className="relative w-full max-w-6xl h-[80vh] bg-transparent z-50"
             onClick={(e) => e.stopPropagation()}
           >
             <Image
-              src={images[selectedImage].src || "/placeholder.svg"}
+              src={images[selectedImage].src}
               alt={images[selectedImage].alt}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 75vw, 50vw"
               className="object-contain"
               priority
             />
-            <div className="absolute bottom-0 left-0 right-0 p-4 bg-black/50 text-white text-center">
-              {images[selectedImage].alt}
+
+            {/* Caption + counter */}
+            <div className="absolute bottom-0 left-0 right-0 p-4 bg-black/50 text-white text-center text-sm md:text-base">
+              <p>{images[selectedImage].alt}</p>
+              <p className="mt-1 opacity-75">
+                Image {selectedImage + 1} of {images.length}
+              </p>
+            </div>
+
+            {/* Close */}
+            <button
+              className="absolute top-4 right-4 z-[100] bg-black/50 hover:bg-black/70 text-white hover:text-pink-300 p-2 rounded-full transition-all duration-300 cursor-pointer"
+              onClick={closeLightbox}
+              aria-label="Close lightbox"
+            >
+              <X size={24} />
+            </button>
+
+            {/* Prev/Next */}
+            <button
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 p-3 rounded-full z-[60]"
+              onClick={() => navigateImage("prev")}
+              aria-label="Previous image"
+            >
+              <ChevronLeft className="text-white" size={24} />
+            </button>
+            <button
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 p-3 rounded-full z-[60]"
+              onClick={() => navigateImage("next")}
+              aria-label="Next image"
+            >
+              <ChevronRight className="text-white" size={24} />
+            </button>
+
+            {/* Download + Share */}
+            <div className="absolute top-4 left-4 flex space-x-3 z-[70]">
+              <button
+                className="bg-black/50 hover:bg-black/70 p-2 rounded-full text-white cursor-pointer"
+                onClick={handleDownload}
+                aria-label="Download image"
+              >
+                <Download size={20} />
+              </button>
+              <button
+                className="bg-black/50 hover:bg-black/70 p-2 rounded-full text-white cursor-pointer"
+                onClick={handleShare}
+                aria-label="Share image"
+              >
+                <Share2 size={20} />
+              </button>
             </div>
           </div>
-
-          <div className="absolute inset-0 z-40" onClick={closeLightbox} aria-hidden="true"></div>
         </div>
       )}
     </section>
