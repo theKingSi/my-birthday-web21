@@ -11,18 +11,18 @@ export default function Gallery() {
   const images = [
     {
       id: 1,
+      src: "/B32.jpeg",
+      alt: "Birthday Boy",
+    },
+    {
+      id: 2,
       src: "/B1.jpg",
       alt: "A tall boy standing near a short boy",
     },
     {
-      id: 2,
-      src: "/B2.jpg",
-      alt: "Objection my lord",
-    },
-    {
       id: 3,
       src: "/B31.jpg",
-      alt: "Smlies weirdly",
+      alt: "A tired birthday boy",
     },
     {
       id: 4,
@@ -56,8 +56,8 @@ export default function Gallery() {
     },
     {
       id: 10,
-      src: "/B10.jpg",
-      alt: "Bro Gerald😊😊",
+      src: "/B34.jpg",
+      alt: "Styles the Grapher",
     },
     {
       id: 11,
@@ -72,12 +72,12 @@ export default function Gallery() {
     {
       id: 13,
       src: "/B13.jpg",
-      alt: "Tall boy at the back, short boy at the front",
+      alt: "Birthday boy in black and white",
     },
     {
       id: 14,
       src: "/B8.jpg",
-      alt: "Birthday card with heartfelt message",
+      alt: "Birthday boy and friends",
     },
     {
       id: 15,
@@ -86,69 +86,92 @@ export default function Gallery() {
     },
     {
       id: 16,
-    src: "/B16.jpg",
-      alt: "Birthday surprise reaction",
+      src: "/B16.jpg",
+      alt: "Slick birthday boy",
     },
     {
       id: 17,
       src: "/B17.jpg",
-      alt: "Birthday outdoor celebration",
+      alt: "Let's........",
     },
     {
       id: 18,
       src: "/B18.jpg",
-      alt: "Birthday selfie with friends",
+      alt: "Birthday boy with Kushi",
     },
     {
       id: 19,
       src: "/B15.jpg",
-      alt: "Birthday cake cutting moment",
+      alt: "Birthday boy also in black and white",
     },
     {
       id: 20,
-      src: "/B23.jpg",
-      alt: "Birthday night celebration with lights",
+      src: "/B33.jpeg",
+      alt: "Birthday boy at IWD",
     },
     {
-        id: 21,
-        src: "/B21.jpg",
-        alt: "Birthday outdoor celebration",
-      },
-      {
-        id: 22,
-        src: "/B22.jpg",
-        alt: "Birthday selfie with friends",
-      },
-      {
-        id: 23,
-        src: "/B20.jpg",
-        alt: "Tall boy at the back, short boy at the front",
-      },
-      {
-        id: 24,
-        src: "/B19.jpg",
-        alt: "Birthday night celebration with lights",
-      },
-      {
-        id: 25,
-        src: "/B27.jpg",
-        alt: "Birthday outdoor celebration",
-      },
-      {
-        id: 26,
-        src: "/B28.jpg",
-        alt: "Birthday selfie with friends",
-      },
-      {
-        id: 27,
-        src: "/B29.jpg",
-        alt: "Tall boy at the back, short boy at the front",
-      },
-      {
-        id: 28,
-        src: "/B30.jpg",
-        alt: "Birthday night celebration with lights",
-      },
+      id: 21,
+      src: "/B21.jpg",
+      alt: "Birthday boy with coursemates",
+    },
+    {
+      id: 22,
+      src: "/B22.jpg",
+      alt: "Shopping for baby napkins for Sam' naming ceremony",
+    },
+    {
+      id: 23,
+      src: "/B20.jpg",
+      alt: "Tall boy at the back, short boy at the front",
+    },
+    {
+      id: 24,
+      src: "/B19.jpg",
+      alt: "Birthday boy ",
+    },
+    {
+      id: 25,
+      src: "/B27.jpg",
+      alt: "Birthday boy at Devfest24",
+    },
+    {
+      id: 26,
+      src: "/B40.jpeg",
+       alt: "Iconic",
+    },
+
+    {
+      id: 27,
+      src: "/B28.jpg",
+     alt: "Birthday boy touching Techub EKSU",
+    },
+
+    {
+      id: 28,
+      src: "/B29.jpg",
+      alt: "Just chilling",
+    },
+    {
+      id: 29,
+      src: "/B30.jpg",
+      alt: "Birthday boy with honor.J",
+    },
+
+    {
+      id: 30,
+      src: "/B39.jpg",
+      alt: "Selfie",
+    },
+    {
+      id: 31,
+      src: "/B37.jpeg",
+      alt: "Birthday boy looking at his future",
+    },
+    {
+      id: 32,
+      src: "/B38.jpg",
+      alt: "Birthday boy at Devfest23",
+    },
   ]
 
   const openLightbox = (index: number) => {
@@ -251,7 +274,7 @@ export default function Gallery() {
           </button>
 
           <button
-             className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 p-3 rounded-full transition-all duration-300 z-[60] backdrop-blur-md border border-white/10 group shadow-lg neon-box cursor-pointer"
+            className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 p-3 rounded-full transition-all duration-300 z-[60] backdrop-blur-md border border-white/10 group shadow-lg neon-box cursor-pointer"
             onClick={() => navigateImage("prev")}
             aria-label="Previous image"
           >
@@ -259,7 +282,7 @@ export default function Gallery() {
           </button>
 
           <button
-           className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 p-3 rounded-full transition-all duration-300 z-[60] backdrop-blur-md border border-white/10 group shadow-lg neon-box cursor-pointer"
+            className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 p-3 rounded-full transition-all duration-300 z-[60] backdrop-blur-md border border-white/10 group shadow-lg neon-box cursor-pointer"
             onClick={() => navigateImage("next")}
             aria-label="Next image"
           >
